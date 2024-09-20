@@ -1,26 +1,15 @@
 package org.knit.lab1;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /***
  * Задача 2
- * Создайте класс SimpleUrl
- * глядя на URL ниже создайте как можно больше полей в классе SimpleUrl:
- * https://test.ru/test/1072/page.jsp?intParam=12345&doubleParam=3.14&textParameter=someText
- * добавьте геттеры и сеттеры для полей
- * Переопределите метод toString() для вывода информации о полях класса:
  * protocol = https
  * address = test.ru
  * domainZone = ru
  * siteName = test
  * webpageName = page.jsp
  * webPageExtention = jsp
- * ....
- * Распарсите данный URL на переменные, создайте экземпляр класса SimpleUrl и выведите на экран
- * Дополнительно
- * попробуйте с другими URL в сети, подумайте как можно сгруппировать значения.
- *
  */
 public class Task2 {
     public class SimpleUrl {
@@ -30,29 +19,39 @@ public class Task2 {
         private String siteName;
         private String webpageName;
         private String webPageExtention;
+        private String dir;
+        private String params;
 
-        public void setProtocol(String a) {
-            protocol = a;
+        public void setProtocol(String s) {
+            protocol = s;
         }
 
-        public void setAddress(String a) {
-            address = a;
+        public void setAddress(String s) {
+            address = s;
         }
 
-        public void setDomainZone(String a) {
-            domainZone = a;
+        public void setDomainZone(String s) {
+            domainZone = s;
         }
 
-        public void setSiteName(String a) {
-            siteName = a;
+        public void setSiteName(String s) {
+            siteName = s;
         }
 
-        public void setWebpageName(String a) {
-            webpageName = a;
+        public void setWebpageName(String s) {
+            webpageName = s;
         }
 
-        public void setWebPageExtention(String a) {
-            webPageExtention = a;
+        public void setWebPageExtention(String s) {
+            webPageExtention = s;
+        }
+
+        public void setDir(String s) {
+            dir = s;
+        }
+
+        public void setParams(String s) {
+            params = s;
         }
 
         public String getProtocol() {
@@ -79,9 +78,23 @@ public class Task2 {
             return webPageExtention;
         }
 
+        public String getDir() {
+            return dir;
+        }
+
+        public String getParams() {
+            return params;
+        }
+
         public String toString() {
-            String s = "protocol = " + protocol + "\n";
-            return s;
+            return "protocol = " + protocol + "\n" +
+                    "address = " + address + "\n" +
+                    "domainZone = " + domainZone + "\n" +
+                    "siteName = " + siteName + "\n" +
+                    "webpageName = " + webpageName + "\n" +
+                    "webPageExtention = " + webPageExtention + "\n" +
+                    "dir = " + dir + "\n" +
+                    "params = " + params;
         }
     }
 
@@ -89,19 +102,28 @@ public class Task2 {
         String urlValue = "https://test.ru/test/1072/page.jsp?intParam=12345&doubleParam=3.14&textParameter=someText";
 
         String[] urlSplit = urlValue.split(":");
-        urlSplit[1].split("/");
-        System.out.println(Arrays.toString(urlSplit));
+        String[] domensSplit = urlSplit[1].split("/");
+        String[] addressSplit = domensSplit[2].split("\\.");
+        String[] lastSplit = domensSplit[domensSplit.length - 1].split("\\?");
 
-         String protocol = urlSplit[1];
-         /*address = test.ru
-         domainZone = ru
-         siteName = test
-         webpageName = page.jsp
-         webPageExtention = jsp*/
+        String protocol = urlSplit[0];
+        String address = domensSplit[2];
+        String domainZone = addressSplit[1];
+        String siteName = addressSplit[0];
+        String webpageName = lastSplit[0];
+        String webPageExtention = lastSplit[0].split("\\.")[1];
+        String dir = domensSplit[3] + "/" + domensSplit[4];
+        String[] params = lastSplit[1].split("&");
 
-        /*SimpleUrl url = new SimpleUrl();
-        url.setAddress(address);
+        SimpleUrl url = new SimpleUrl();
         url.setProtocol(protocol);
-        System.out.println(url);*/
+        url.setAddress(address);
+        url.setDomainZone(domainZone);
+        url.setSiteName(siteName);
+        url.setWebpageName(webpageName);
+        url.setWebPageExtention(webPageExtention);
+        url.setDir(dir);
+        url.setParams(Arrays.toString(params));
+        System.out.println(url);
     }
 }
