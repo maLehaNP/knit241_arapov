@@ -11,6 +11,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Введите первое число: ");
+        /*if (Objects.equals(scanner.next(), "exit")) {
+            System.out.println("Выход из программы.");
+            System.exit(1);
+        }*/
         double a = scanner.nextDouble();
         System.out.print("Введите оператор (+, -, *, /): ");
         String op = scanner.next();
