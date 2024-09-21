@@ -10,16 +10,22 @@ public class Main {
         Task3.Calculator calculator = new Task3.Calculator();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Введите первое число: ");
-        /*if (Objects.equals(scanner.next(), "exit")) {
-            System.out.println("Выход из программы.");
-            System.exit(1);
-        }*/
-        double a = scanner.nextDouble();
-        System.out.print("Введите оператор (+, -, *, /): ");
-        String op = scanner.next();
-        System.out.print("Введите второе число: ");
-        double b = scanner.nextDouble();
+        System.out.println("Выход из программы.");
+        System.exit(1);
+
+        try {
+            System.out.print("Введите первое число: ");
+            double a = scanner.nextDouble();
+            System.out.print("Введите оператор (+, -, *, /): ");
+            String op = scanner.next();
+            System.out.print("Введите второе число: ");
+            double b = scanner.nextDouble();
+        } catch() {
+
+        } finally {
+            
+        }
+
 
         if (Objects.equals(op, "+")) {
             System.out.println("Результат: " + calculator.add(a, b));
