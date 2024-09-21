@@ -1,14 +1,36 @@
 package org.knit;
 
-import org.knit.lab1.Task1;
-import org.knit.lab1.Task2;
+import org.knit.lab2.Task3;
+
+import java.util.Objects;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Task1 task1 = new Task1();
-        task1.execute();
+        Task3.Calculator calculator = new Task3.Calculator();
+        Scanner scanner = new Scanner(System.in);
 
-        Task2 task2 = new Task2();
-        task2.execute();
+        System.out.print("Введите первое число: ");
+        double a = scanner.nextDouble();
+        System.out.print("Введите оператор (+, -, *, /): ");
+        String op = scanner.next();
+        System.out.print("Введите второе число: ");
+        double b = scanner.nextDouble();
+
+        if (Objects.equals(op, "+")) {
+            System.out.println("Результат: " + calculator.add(a, b));
+        }
+        if (Objects.equals(op, "-")) {
+            System.out.println("Результат: " + calculator.substract(a, b));
+        }
+        if (Objects.equals(op, "*")) {
+            System.out.println("Результат: " + calculator.multiply(a, b));
+        }
+        if (Objects.equals(op, "/")) {
+            if (b == 0) {
+                throw new ArithmeticException("Деление на ноль невозможно.");
+            }
+            System.out.println("Результат: " + calculator.divide(a, b));
+        }
     }
 }
