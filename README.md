@@ -1,4 +1,5 @@
 # Курс по Java
 Выполнено:
-- Task1
-- Task2
+- Task 1
+- Task 2
+- Task 3
