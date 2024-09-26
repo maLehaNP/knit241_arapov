@@ -10,7 +10,7 @@ import static java.lang.System.exit;
 
 public class Main {
     public static void main(String[] args) {
-        Task3.Calculator calculator = new Task3.Calculator();
+        Task3.Calculator calculator = new Task3.Calculator();  // bla-bla
         Scanner scanner = new Scanner(System.in);  // Сканнер (ввод).
         double a = 0.0;
         String op = null;
