@@ -11,7 +11,7 @@ import static java.lang.System.exit;
 public class Main {
     public static void main(String[] args) {
         Task3.Calculator calculator = new Task3.Calculator();
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);  // Сканнер (ввод).
         double a = 0.0;
         String op = null;
         double b = 0.0;
