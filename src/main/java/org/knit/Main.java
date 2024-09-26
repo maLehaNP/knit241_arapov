@@ -2,31 +2,31 @@ package org.knit;
 
 import org.knit.lab2.Task3;
 
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.Scanner;
+
+import static java.lang.System.exit;
 
 public class Main {
     public static void main(String[] args) {
         Task3.Calculator calculator = new Task3.Calculator();
         Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Выход из программы.");
-        System.exit(1);
-
+        double a = 0.0;
+        String op = null;
+        double b = 0.0;
         try {
             System.out.print("Введите первое число: ");
-            double a = scanner.nextDouble();
+            a = scanner.nextDouble();
             System.out.print("Введите оператор (+, -, *, /): ");
-            String op = scanner.next();
+            op = scanner.next();
+            if (op.equals("exit")) throw new InputMismatchException();
             System.out.print("Введите второе число: ");
-            double b = scanner.nextDouble();
-        } catch() {
-
-        } finally {
-            
+            b = scanner.nextDouble();
+        } catch (InputMismatchException e) {
+            System.out.println("Выход из программы.");
+            exit(1);
         }
-
-
         if (Objects.equals(op, "+")) {
             System.out.println("Результат: " + calculator.add(a, b));
         }
