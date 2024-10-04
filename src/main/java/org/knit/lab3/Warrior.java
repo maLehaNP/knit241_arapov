@@ -2,14 +2,15 @@ package org.knit.lab3;
 
 public class Warrior extends Player {
     int maxHealth = 1000;
+    int health = maxHealth;
     int damage = 70;
-    int armor = 30;
+    int defence = 30;
 
     public Warrior(String name) {
         super(name);
     }
 
-    private void attack(Player player) {
-        player.reduceHealht(damage);
+    public void attack(Player player) {
+        player.decreaseHealth(damage);
     }
 }
