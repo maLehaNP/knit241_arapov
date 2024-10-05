@@ -1,13 +1,11 @@
 package org.knit.lab3;
 
 public class Mage extends Player {
-    int maxHealth = 700;
-    int health = maxHealth;
-    int damage = 60;
-    int defence = 0;
-
     public Mage(String name) {
         super(name);
+        setMaxHealth(700);
+        setHealth(getMaxHealth());
+        setDamage(60);
     }
 
     public void castSpell(Player player) {

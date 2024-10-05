@@ -30,6 +30,10 @@ public class Player {
         this.health = health;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
     public void setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
     }
@@ -50,8 +54,16 @@ public class Player {
         this.y = y;
     }
 
+    public int getDamage() {
+        return damage;
+    }
+
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public int getDefence() {
+        return defence;
     }
 
     public void setDefence(int defence) {
