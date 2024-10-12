@@ -27,20 +27,16 @@ public class Task3 {
                 System.out.println("Выход из программы.");
                 exit(1);
             }
-            if (Objects.equals(op, "+")) {
-                System.out.printf("Результат: %f%n", calculator.add(a, b));
-            }
-            if (Objects.equals(op, "-")) {
-                System.out.printf("Результат: %f%n", calculator.substract(a, b));
-            }
-            if (Objects.equals(op, "*")) {
-                System.out.printf("Результат: %f%n", calculator.multiply(a, b));
-            }
-            if (Objects.equals(op, "/")) {
-                if (b == 0) {
-                    throw new ArithmeticException("Деление на ноль невозможно.");
-                }
-                System.out.printf("Результат: %f%n", calculator.divide(a, b));
+            switch (op){
+                case "+":  System.out.printf("Результат: %f%n", calculator.add(a, b)); break;
+                case "-":  System.out.printf("Результат: %f%n", calculator.substract(a, b)); break;
+                case "*":  System.out.printf("Результат: %f%n", calculator.multiply(a, b)); break;
+                case "/":
+                    if (b == 0) {
+                        throw new ArithmeticException("Деление на ноль невозможно.");
+                    }
+                    System.out.printf("Результат: %f%n", calculator.divide(a, b));
+                    break;
             }
             System.out.printf("%n");
         }
