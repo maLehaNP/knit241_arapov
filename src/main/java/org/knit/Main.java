@@ -21,6 +21,6 @@ public class Main {
 //        task3.execute();
 //        task4.execute();
 //        task6.execute();
-//        task7.execute();
+        task7.execute();
     }
 }
