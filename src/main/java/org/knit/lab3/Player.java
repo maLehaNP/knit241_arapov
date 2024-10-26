@@ -3,8 +3,8 @@ package org.knit.lab3;
 public class Player {
     private String name;
     private int maxHealth;
-    private int health = maxHealth;
-    private boolean isAlive;
+    private int health;
+    private boolean isAlive = true;
     private int x;
     private int y;
     private int damage;
@@ -14,60 +14,28 @@ public class Player {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() {return name;}
+    public int getHealth() {return health;}
+    public int getMaxHealth() {return maxHealth;}
+    public boolean getAlive() {return isAlive;}
+    public int getX() {return x;}
+    public int getY() {return y;}
+    public int getDamage() {return damage;}
+    public int getDefence() {return defence;}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) {this.name = name;}
+    public void setHealth(int health) {this.health = health;}
+    public void setMaxHealth(int maxHealth) {this.maxHealth = maxHealth;}
+    public void setAlive(boolean alive) {isAlive = alive;}
+    public void setX(int x) {this.x = x;}
+    public void setY(int y) {this.y = y;}
+    public void setDamage(int damage) {this.damage = damage;}
+    public void setDefence(int defence) {this.defence = defence;}
 
-    public int getHealth() {
-        return health;
-    }
-
-    public void setHealth(int health) {
-        this.health = health;
-    }
-
-    public int getMaxHealth() {
-        return maxHealth;
-    }
-
-    public void setMaxHealth(int maxHealth) {
-        this.maxHealth = maxHealth;
-    }
-
-    public boolean getAlive() {
-        return isAlive;
-    }
-
-    public void setAlive(boolean alive) {
-        isAlive = alive;
-    }
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public int getDefence() {
-        return defence;
-    }
-
-    public void setDefence(int defence) {
-        this.defence = defence;
+    @Override
+    public String toString() {
+        return name + " " + health + "HP " + "Alive=" + isAlive
+                + " (" + x + ", " + y + ")";
     }
 
     public void increaseHealth(int value) {
@@ -90,6 +58,7 @@ public class Player {
     }
 
     public void move(int x, int y) {
+        System.out.printf("%s перешел на позицию (%d, %d) ((%d, %d) -> (%2$d, %3$d)).%n", name, x, y, this.x, this.y);
         this.x = x;
         this.y = y;
     }

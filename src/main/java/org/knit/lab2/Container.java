@@ -19,7 +19,7 @@ public class Container {
     /// <summary>
     ///
     /// </summary>
-    public void add(Task4.Shape shape) {
+    public void add(Shape shape) {
         if (shape.getVolume() <= value) {
 //                figures[figures.length - 1] = shape;
             value -= shape.getVolume();
