@@ -11,5 +11,9 @@ public class Client {
         priest.heal(mage);
         mage.castSpell(warrior);
         System.out.println(mage.toString());
+        mage.move(2, 2);
+        warrior.attack(mage);
+        warrior.move(1, 1);
+        warrior.attack(mage);
     }
 }
