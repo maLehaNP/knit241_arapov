@@ -7,7 +7,7 @@ public class Task8 {
         Random random = new Random();
         ItemNameComparator itemComp = new ItemNameComparator();
 
-        String[] names = {"Книга", "Ручка", "Линейка", "Пинал"};
+        String[] names = {"Книга", "Ручка", "Линейка", "Пинал", "Карандаш"};
         float[] prices = {1.2342f, 2.2341f, 3.234123f, 4.2341f};
         boolean[] packages = {true, false};
         List<ShopItem> testData = new ArrayList<ShopItem>();
@@ -15,8 +15,8 @@ public class Task8 {
         HashSet<ShopItem> idenItems = new HashSet<ShopItem>();
 
         for (int i = 0; i < n_samples; i++) {
-            ShopItem item = new ShopItem(names[random.nextInt(4)]);
-            item.setPrice(prices[random.nextInt(4)]);
+            ShopItem item = new ShopItem(names[random.nextInt(names.length)]);
+            item.setPrice(prices[random.nextInt(prices.length)]);
             item.setHavePackage(packages[random.nextInt(2)]);
             testData.add(item);
         }
