@@ -62,4 +62,11 @@ public class Player {
         this.x = x;
         this.y = y;
     }
+
+    @Override
+    public String toString() {
+        return name + " | "
+                + "HP: " + health  + " | "
+                + "POS: (" + x + ", " + y + ")";
+    }
 }
