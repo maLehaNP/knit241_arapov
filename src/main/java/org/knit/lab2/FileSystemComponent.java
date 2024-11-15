@@ -1,9 +1,16 @@
 package org.knit.lab2;
 
 public abstract class FileSystemComponent {
-    public abstract String getName();
+    String name = "";
+    int size = 0;
 
-    public abstract byte getSize();
+    public String getName() {
+        return name;
+    }
+
+    public int getSize() {
+        return size;
+    }
 
     public abstract void add(FileSystemComponent component);
 
