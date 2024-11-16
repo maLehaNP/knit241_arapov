@@ -24,7 +24,7 @@ public class Task5 {
         folder2.add(folder1); // Вложенная папка
 
         // Выводим структуру файловой системы
-        folder2.display("----");
+        folder2.display("\t");
 
         // Выводим общий размер папки 2
         System.out.println("Total size of Folder2: " + folder2.getSize() + " bytes");

@@ -18,6 +18,6 @@ public class File extends FileSystemComponent {
 
     @Override
     public void display(String indent) {
-        throw new UnsupportedOperationException();
+        System.out.printf("%s%s (%s bytes)%n", indent, name, size);
     }
 }

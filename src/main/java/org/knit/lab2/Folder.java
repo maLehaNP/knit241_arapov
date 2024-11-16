@@ -24,14 +24,9 @@ public class Folder extends FileSystemComponent {
 
     @Override
     public void display(String indent) {
-        System.out.printf("%s%s (%d b)%n", indent.substring(0, indent.length() / 2), name, size);
+        System.out.printf("%s%s (%s bytes)%n", indent, name, size);
         for (FileSystemComponent component : content) {
-            if (component.getClass() == File.class) {
-                System.out.printf("%s%s (%d b)%n", indent, component.getName(), component.getSize());
-            }
-            if (component.getClass() == Folder.class) {
-                component.display(indent + indent);
-            }
+            component.display("\t" + indent);
         }
     }
 }
