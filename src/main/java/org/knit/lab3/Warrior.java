@@ -1,15 +1,19 @@
 package org.knit.lab3;
 
 public class Warrior extends Player {
-    int maxHealth = 1000;
-    int damage = 70;
-    int armor = 30;
+    private int attackRadius = 2;
 
     public Warrior(String name) {
         super(name);
+        setMaxHealth(1000);
+        setHealth(getMaxHealth());
+        setDamage(70);
+        setDefence(30);
     }
 
-    private void attack(Player player) {
-        player.reduceHealht(damage);
+    public void attack(Player player) {
+        if (Math.pow(attackRadius, 2) >= Math.pow(Math.abs(getX() - player.getX()), 2) + Math.pow(Math.abs(getY() - player.getY()), 2))
+            player.decreaseHealth(getDamage());
+        else System.out.printf("%s промахнулся по %s.%n", getName(), player.getName());
     }
 }

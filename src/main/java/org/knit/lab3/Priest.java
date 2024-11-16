@@ -1,15 +1,14 @@
 package org.knit.lab3;
 
 public class Priest extends Player {
-    int maxHealth = 600;
-    int damage = 50;
-    int armor = 0;
-
     public Priest(String name) {
         super(name);
+        setMaxHealth(600);
+        setHealth(getMaxHealth());
+        setDamage(50);
     }
 
-    private void heal(Player player) {
-        player.addHealth(300);
+    public void heal(Player player) {
+        player.increaseHealth(300);
     }
 }
