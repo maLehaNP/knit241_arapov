@@ -10,7 +10,6 @@ public class Container {
     public double getValue() {
         return value;
     }
-
     /**
      * Добавляет фигуру.
      * @param shape
