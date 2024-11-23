@@ -7,6 +7,7 @@ import org.knit.lab2.Task4;
 import org.knit.lab2.Task5;
 import org.knit.lab3.Task6;
 import org.knit.lab5.Task8;
+import org.knit.lab9.Task15;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class Main {
         Task5 task5 = new Task5();
         Task6 task6 = new Task6();
         Task8 task8 = new Task8();
+        Task15 task15 = new Task15();
 
 //        task1.execute();
 //        task2.execute();
@@ -25,5 +27,6 @@ public class Main {
 //        task5.execute();
 //        task6.execute();
 //        task8.execute();
+        task15.execute();
     }
 }
