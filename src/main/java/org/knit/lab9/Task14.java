@@ -7,7 +7,6 @@ public class Task14 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите текущий сигнал светофора (RED, YELLOW, GREEN): ");
         TrafficLight signal = TrafficLight.valueOf(scanner.next());
-        
         System.out.println("Следующий сигнал: " + signal.getNextLight());
     }
 }
