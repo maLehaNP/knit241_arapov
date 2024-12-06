@@ -6,7 +6,7 @@ package org.knit;
 //import org.knit.lab2.Task4;
 //import org.knit.lab3.Task6;
 //import org.knit.lab5.Task8;
-import org.knit.lab6.Task10;
+//import org.knit.lab6.Task10;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,7 +16,7 @@ public class Main {
 //        Task4 task4 = new Task4();
 //        Task6 task6 = new Task6();
 //        Task8 task8 = new Task8();
-        Task10 task10 = new Task10();
+//        Task10 task10 = new Task10();
 
 //        task1.execute();
 //        task2.execute();
@@ -24,6 +24,6 @@ public class Main {
 //        task4.execute();
 //        task6.execute();
 //        task8.execute();
-        task10.execute();
+//        task10.execute();
     }
 }

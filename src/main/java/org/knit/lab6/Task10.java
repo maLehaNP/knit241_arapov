@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 public class Task10 {
     public void execute() {
         ArrayList<String> wordDict = new ArrayList<String>();
-        String filePath = "C:\\Users\\maleha\\IdeaProjects\\knit241\\src\\main\\java\\org\\knit\\lab6\\dictionary.txt";
+        String filePath = "src/main/java/org/knit/lab6/dictionary.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = reader.readLine()) != null)
@@ -16,18 +16,20 @@ public class Task10 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         gameSession(wordDict);
     }
 
     public void gameSession(ArrayList<String> wordDict) {
         Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
+        int wordDictLen = wordDict.toArray().length;
 
-        ArrayList<String> ansWord = new ArrayList<String>();
-        ansWord.addAll(Arrays.asList(wordDict.get(rand.nextInt(9)).split("")));
-        ArrayList<String> word = new ArrayList<String>();
-        HashSet<String> guessed = new HashSet<String>();
+        ArrayList<String> ansWord = new ArrayList<>(Arrays.asList(wordDict.get(rand.nextInt(wordDictLen)).split("")));
         int ansWordLen = ansWord.toArray().length;
+
+        ArrayList<String> word = new ArrayList<>();
+        HashSet<String> guessed = new HashSet<>();
 
         for (int i = 0; i < ansWordLen; i++) {
             word.add("_");
@@ -45,8 +47,19 @@ public class Task10 {
             if (letIndex != -1) {
                 word.remove(letIndex);
                 word.add(letIndex, ansWord.get(letIndex));
+                if (word.equals(ansWord)) {
+                    System.out.println("Победа!");
+                    break;
+                }
+            } else {
+                attemptNum--;
+                System.out.println("Неверно! Осталось попыток: " + attemptNum);
             }
-            attemptNum--;
         }
+        System.out.print("Продолжить игру? (да): ");
+        String cont = scanner.next();
+        if (Objects.equals(cont, "да")) {
+            gameSession(wordDict);
+        } else System.out.println("Конец игры.");
     }
 }
