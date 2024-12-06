@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 
 public class Task10 {
     public void execute() {
-        ArrayList<String> wordDict = new ArrayList<String>();
+        ArrayList<String> wordDict = new ArrayList<>();
         String filePath = "src/main/java/org/knit/lab6/dictionary.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -29,7 +29,7 @@ public class Task10 {
         int ansWordLen = ansWord.toArray().length;
 
         ArrayList<String> word = new ArrayList<>();
-        HashSet<String> guessed = new HashSet<>();
+//        HashSet<String> guessed = new HashSet<>();
 
         for (int i = 0; i < ansWordLen; i++) {
             word.add("_");
