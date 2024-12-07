@@ -1,9 +1,9 @@
 package org.knit.lab9;
 
 public enum TrafficLight {
-    RED("YELLOW"),
-    YELLOW("GREEN"),
-    GREEN("RED");
+    RED("GREEN"),
+    YELLOW("RED"),
+    GREEN("YELLOW");
     private String nextLight;
 
     TrafficLight(String nextLight) {
