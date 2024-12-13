@@ -8,6 +8,7 @@ import static java.lang.System.exit;
 public class Task11 {
     public void execute() {
         TreeSet<String> students = new TreeSet<>();
+        Scanner scan = new Scanner(System.in);
 
         System.out.println("Меню:\n" +
                 "1. Добавить студента\n" +
@@ -15,25 +16,36 @@ public class Task11 {
                 "3. Показать всех студентов\n" +
                 "4. Найти студента\n" +
                 "5. Выйти");
-        Scanner scan = new Scanner(System.in);
         while (true) {
-            System.out.print("Выберите опцию: ");
-            String option = scan.next();
-            switch (option) {
-                case "1": System.out.print("Введите имя студента: "); students.add(scan.nextLine()); break;
-                case "2": System.out.print("Введите имя студента: ");
-                    if (students.remove(scan.nextLine())) System.out.println("Студент удален.");
+            System.out.print("\nВыберите опцию: ");
+            switch (scan.next()) {
+                case "1" -> {
+                    System.out.print("Введите имя студента: ");
+                    String student = String.join(" ", scan.next(), scan.next());
+                    if (students.add(student)) System.out.println("Студент добавлен.");
+                    else System.out.println("Такой студент уже есть.");
+                }
+                case "2" -> {
+                    System.out.print("Введите имя студента для удаления: ");
+                    String student = String.join(" ", scan.next(), scan.next());
+                    if (students.remove(student)) System.out.println("Студент удален.");
                     else System.out.println("Студент не найден.");
-                    break;
-                case "3": System.out.print("Список студентов:");
-                    for (String student : students) System.out.println("\t" + student);
-                    break;
-                case "4":
+                }
+                case "3" -> {
+                    System.out.println("Список студентов:");
+                    for (String student : students) System.out.println("- " + student);
+                }
+                case "4" -> {
                     System.out.print("Введите имя студента для поиска: ");
-                    if (students.contains(scan.nextLine())) System.out.println("Студент найден.");
+                    String student = String.join(" ", scan.next(), scan.next());
+                    if (students.contains(student)) System.out.println("Студент найден.");
                     else System.out.println("Студент не найден.");
-                    break;
-                case "5": System.out.println("Выход из программы."); exit(1);
+                }
+                case "5" -> {
+                    System.out.println("Выход из программы.");
+                    exit(1);
+                }
+                default -> System.out.println("Неправильная опция.");
             }
         }
     }
