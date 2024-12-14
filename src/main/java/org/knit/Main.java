@@ -9,6 +9,7 @@ package org.knit;
 //import org.knit.lab5.Task8;
 //import org.knit.lab6.Task10;
 //import org.knit.lab6.Task11;
+import org.knit.lab7.Task12;
 //import org.knit.lab9.Task14;
 //import org.knit.lab9.Task15;
 //import org.knit.lab9.Task16;
@@ -24,6 +25,7 @@ public class Main {
 //        Task8 task8 = new Task8();
 //        Task10 task10 = new Task10();
 //        Task11 task11 = new Task11();
+        Task12 task12 = new Task12();
 //        Task14 task14 = new Task14();
 //        Task15 task15 = new Task15();
 //        Task16 task16 = new Task16();
@@ -37,6 +39,7 @@ public class Main {
 //        task8.execute();
 //        task10.execute();
 //        task11.execute();
+        task12.execute();
 //        task14.execute();
 //        task15.execute();
 //        task16.execute();
