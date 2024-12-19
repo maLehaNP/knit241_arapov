@@ -4,9 +4,9 @@
 - Task 2
 - Task 3
 - Task 4
+- Task 5
 - Task 6 (только со 2-ым допом)
 - Task 8
-- Task 5
 - Task 10
 - Task 11
 - Task 12
@@ -14,6 +14,7 @@
 - Task 15
 - Task 16
 - Task 18
+- Task 19
 
 ## В разработке:
 - Task 7
