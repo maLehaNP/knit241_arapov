@@ -7,7 +7,7 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class Task3 {
-    public void execute() {
+    public static void execute() {
         Calculator calculator = new Calculator();  // bla-bla
         Scanner scanner = new Scanner(System.in);  // Сканнер (ввод).
         double a = 0.0;

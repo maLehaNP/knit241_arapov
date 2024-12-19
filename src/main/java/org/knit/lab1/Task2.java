@@ -12,7 +12,7 @@ import java.util.Arrays;
  * webPageExtention = jsp
  */
 public class Task2 {
-    public void execute() {
+    public static void execute() {
         String urlValue = "https://test.ru/test/1072/page.jsp?intParam=12345&doubleParam=3.14&textParameter=someText";
 
         String[] urlSplit = urlValue.split(":");

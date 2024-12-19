@@ -6,7 +6,7 @@ import java.util.*;
 import java.io.BufferedReader;
 
 public class Task10 {
-    public void execute() {
+    public static void execute() {
         ArrayList<String> wordDict = new ArrayList<>();
         String filePath = "src/main/java/org/knit/lab6/dictionary.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -20,7 +20,7 @@ public class Task10 {
         gameSession(wordDict);
     }
 
-    public void gameSession(ArrayList<String> wordDict) {
+    public static void gameSession(ArrayList<String> wordDict) {
         Random rand = new Random();
         Scanner scanner = new Scanner(System.in);
         int wordDictLen = wordDict.toArray().length;

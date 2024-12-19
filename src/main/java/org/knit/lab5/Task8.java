@@ -3,7 +3,7 @@ package org.knit.lab5;
 import java.util.*;
 
 public class Task8 {
-    public void execute() {
+    public static void execute() {
         Random random = new Random();
         ItemNameComparator itemComp = new ItemNameComparator();
 

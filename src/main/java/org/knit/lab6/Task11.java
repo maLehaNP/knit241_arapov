@@ -6,7 +6,7 @@ import java.util.TreeSet;
 import static java.lang.System.exit;
 
 public class Task11 {
-    public void execute() {
+    public static void execute() {
         TreeSet<String> students = new TreeSet<>();
         Scanner scan = new Scanner(System.in);
 

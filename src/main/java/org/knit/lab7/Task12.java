@@ -6,7 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Task12 {
-    public void execute() {
+    public static void execute() {
         Path filePath = Paths.get("src/main/java/org/knit/lab7/sample12.txt");
         Path startPath = Paths.get("src/main/java/org/knit/lab7/countDir");
 

@@ -18,7 +18,7 @@ package org.knit.lab1;
  * 91,92,93,94,95,96,97,98,99,100
  ***/
 public class Task1 {
-    public void execute() {
+    public static void execute() {
         String line = "";
         for (int i = 1; i <= 100; i++) {
             line = line + i + ",";
