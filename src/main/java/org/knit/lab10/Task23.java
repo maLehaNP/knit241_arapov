@@ -1,7 +1,5 @@
 package org.knit.lab10;
 
-import java.lang.reflect.Type;
-
 public class Task23 {
     public static void execute() {
         printType(123); // java.lang.Integer
