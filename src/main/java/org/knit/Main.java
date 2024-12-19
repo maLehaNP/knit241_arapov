@@ -14,6 +14,7 @@ package org.knit;
 //import org.knit.lab9.Task15;
 //import org.knit.lab9.Task16;
 //import org.knit.lab10.Task18;
+import org.knit.lab10.Task19;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,5 +32,6 @@ public class Main {
 //        Task15.execute();
 //        Task16.execute();
 //        Task18.execute();
+        Task19.execute();
     }
 }
