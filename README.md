@@ -8,13 +8,15 @@
 - Task 8
 - Task 5
 - Task 10
+- Task 11
+- Task 12
 - Task 14
 - Task 15
 - Task 16
 
 ## В разработке:
 - Task 7
-- Task 11
+- Task 18
 
 Готовые задания слиты с master веткой.
 Для проверки можно скачать master и раскомментить нужный "execute".
