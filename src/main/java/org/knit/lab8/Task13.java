@@ -44,7 +44,7 @@ public class Task13 {
                     try {
                         UserManager.saveUsers(users);
                         System.out.println("Список успешно сохранён в файл.");
-                    } catch (IOException e) {System.out.println("Ошибка I/O");}
+                    } catch (IOException e) {System.out.println(e.getMessage());}
                 }
                 case "4" -> {
                     try {
