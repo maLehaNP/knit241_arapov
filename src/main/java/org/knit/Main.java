@@ -8,17 +8,18 @@ package org.knit;
 //import org.knit.lab3.Task6;
 //import org.knit.lab5.Task8;
 //import org.knit.lab6.Task10;
-//import org.knit.lab6.Task11;
-//import org.knit.lab7.Task12;
+import org.knit.lab6.Task11;
+import org.knit.lab7.Task12;
+import org.knit.lab8.Task13;
 //import org.knit.lab9.Task14;
 //import org.knit.lab9.Task15;
 //import org.knit.lab9.Task16;
-//import org.knit.lab10.Task18;
-//import org.knit.lab10.Task19;
-//import org.knit.lab10.Task20;
-//import org.knit.lab10.Task21;
-//import org.knit.lab10.Task22;
-//import org.knit.lab10.Task23;
+import org.knit.lab10.Task18;
+import org.knit.lab10.Task19;
+import org.knit.lab10.Task20;
+import org.knit.lab10.Task21;
+import org.knit.lab10.Task22;
+import org.knit.lab10.Task23;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,11 +31,13 @@ public class Main {
 //        Task6.execute();
 //        Task8.execute();
 //        Task10.execute();
-//        Task11.execute();
-//        Task12.execute();
 //        Task14.execute();
 //        Task15.execute();
 //        Task16.execute();
+
+//        Task11.execute();
+//        Task12.execute();
+        Task13.execute();
 //        Task18.execute();
 //        Task19.execute();
 //        Task20.execute();
