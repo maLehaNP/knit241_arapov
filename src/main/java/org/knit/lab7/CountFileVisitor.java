@@ -15,9 +15,11 @@ public class CountFileVisitor implements FileVisitor<Path> {
 
     @Override
     public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-        System.out.println("Файл: " + file.toString());
-        System.out.println("Количество строк: " + TextFileProcessor.countLines(file));
-        System.out.println("Количество слов: " + TextFileProcessor.countWords(file));
+        if (file.toString().endsWith(".txt")) {
+            System.out.println("Файл: " + file.toString());
+            System.out.println("Количество строк: " + TextFileProcessor.countLines(file));
+            System.out.println("Количество слов: " + TextFileProcessor.countWords(file));
+        }
         return FileVisitResult.CONTINUE;
     }
 
