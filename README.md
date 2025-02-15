@@ -20,5 +20,6 @@
 ## Показано:
 - Tasks 1-6
 - Task 8
-- Task 10       
+- Tasks 10-12
 - Tasks 14-16
+- Tasks 18-23
