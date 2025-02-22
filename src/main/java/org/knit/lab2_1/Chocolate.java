@@ -17,6 +17,6 @@ public class Chocolate extends CoffeeDecorator {
 
     @Override
     public int getCalories() {
-        return super.getCalories() + 90;
+        return super.getCalories() + 80;
     }
 }

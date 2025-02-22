@@ -20,7 +20,8 @@ package org.knit;
 //import org.knit.lab10.Task22;
 //import org.knit.lab10.Task23;
 //import org.knit.lab2_1.Task2_1;
-import org.knit.lab2_1.Task2_2;
+//import org.knit.lab2_1.Task2_2;
+import org.knit.lab2_1.Task2_3;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,6 +45,7 @@ public class Main {
 //        Task22.execute();
 //        Task23.execute();
 //        Task2_1.execute();
-        Task2_2.execute();
+//        Task2_2.execute();
+        Task2_3.execute();
     }
 }
