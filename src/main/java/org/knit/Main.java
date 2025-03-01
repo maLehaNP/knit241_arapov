@@ -6,6 +6,7 @@ package org.knit;
 //import org.knit.lab2_2.Task2_4;
 //import org.knit.lab2_2.Task2_5;
 //import org.knit.lab2_2.Task2_6;
+//import org.knit.lab2_2.Task2_7;
 //import org.knit.lab2_3.Task10;
 
 public class Main {
@@ -16,6 +17,7 @@ public class Main {
 //        Task2_4.execute();
 //        Task2_5.execute();
 //        Task2_6.execute();
+//        Task2_7.execute();
 //        Task10.execute();
     }
 }
