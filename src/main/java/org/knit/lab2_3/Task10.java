@@ -15,6 +15,9 @@ public class Task10 {
             });
         }
         executor.shutdown();
+        while (!executor.isTerminated()) {
+
+        }
         System.out.println("Гонка завершена");
     }
 }
