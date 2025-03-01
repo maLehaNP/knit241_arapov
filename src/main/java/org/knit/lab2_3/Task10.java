@@ -10,14 +10,10 @@ public class Task10 {
 
         for (int i = 0; i < 5; i++) {
             int finalI = i;
-            executor.submit(() -> {
-                new Runner(finalI, bar).run();
-            });
+            executor.submit(() -> new Runner(finalI, bar).run());
         }
         executor.shutdown();
-        while (!executor.isTerminated()) {
-
-        }
+        while (!executor.isTerminated());
         System.out.println("Гонка завершена");
     }
 }
