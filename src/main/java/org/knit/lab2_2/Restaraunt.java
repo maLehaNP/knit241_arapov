@@ -4,18 +4,19 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Restaraunt {
-    private final int CAPACITY = 3;
-    private Queue<String> mealsQueue = new LinkedList<>();
+    private final int capacity = 3;
+    private Queue<Integer> mealsQueue = new LinkedList<>();
 
-    public synchronized void cook(String name) {
-        while (mealsQueue.size() >= CAPACITY) {
+    public synchronized void cook(int dishNum) {
+        while (mealsQueue.size() >= capacity) {
             try {
                 wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
         }
-        mealsQueue.add(name);
+        mealsQueue.add(dishNum);
+        System.out.println("Повар приготовил блюдо " + dishNum);
         notify();
     }
 
@@ -28,5 +29,6 @@ public class Restaraunt {
             }
         }
         System.out.println("Официант подал блюдо " + mealsQueue.poll());
+        notify();
     }
 }
