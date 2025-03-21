@@ -7,15 +7,18 @@ public class Consumer implements Runnable {
         this.warehouse = warehouse;
     }
 
-    @Override
     public void run() {
-        while (warehouse.getGoods() == 0) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+        while (!Thread.currentThread().isInterrupted()) {
+            System.out.println("Consumer buy good № " + warehouse.getGoods());
+            warehouse.decrement();
+            if (warehouse.getGoods() == 0) {
+                try {
+                    System.out.println("Consumer waiting...");
+                    wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-        warehouse.decrement();
     }
 }

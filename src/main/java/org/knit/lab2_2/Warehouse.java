@@ -1,19 +1,35 @@
 package org.knit.lab2_2;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Warehouse {
-    private AtomicInteger goods = new AtomicInteger(0);
+    private Queue<Integer> mealsQueue = new LinkedList<>();
+    private final int maxProd = 3;
 
-    public void increment() {
-        goods.incrementAndGet(); // Не атомарно!
+    public synchronized void produce(int dishNum) {
+        while (mealsQueue.size() >= maxProd) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        mealsQueue.add(dishNum);
+        System.out.println("Повар приготовил блюдо " + dishNum);
+        notify();
     }
 
-    public void decrement() {
-        goods.decrementAndGet(); // Не атомарно!
-    }
-
-    public int getGoods() {
-        return goods.get();
+    public synchronized void consume() {
+        while (mealsQueue.isEmpty()) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        System.out.println("Официант подал блюдо " + mealsQueue.poll());
+        notify();
     }
 }

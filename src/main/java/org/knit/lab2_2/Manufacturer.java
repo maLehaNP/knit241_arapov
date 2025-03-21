@@ -8,15 +8,18 @@ public class Manufacturer implements Runnable {
         this.warehouse = warehouse;
     }
 
-    @Override
     public void run() {
-        while (warehouse.getGoods() == maxProd) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+        while (!Thread.currentThread().isInterrupted()) {
+            System.out.println("Manufacturer produce good № " + warehouse.getGoods());
+            warehouse.increment();
+            if (warehouse.getGoods() == maxProd) {
+                try {
+                    System.out.println("Manufacturer waiting...");
+                    wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
         }
-        warehouse.increment();
     }
 }
