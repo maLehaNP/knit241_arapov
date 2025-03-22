@@ -6,13 +6,6 @@ public class Task2_6 {
         final int carCount = 20;
         final int trainCount = 3;
 
-        /*for (int i = 0; i < carCount; i++) {
-            int carNum = i;
-            new Thread(() -> {
-                crossing.car(carNum);
-            }).start();
-        }*/
-
         Thread threadCars = new Thread(() -> {
             for (int i = 1; i <= carCount; i++) {
                 crossing.car(i);
