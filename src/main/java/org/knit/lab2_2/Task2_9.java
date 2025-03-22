@@ -10,8 +10,8 @@ public class Task2_9 {
         BlockingQueue<Detail> warehouseQueue = new LinkedBlockingQueue<>();
 
         ExecutorService executorService = Executors.newFixedThreadPool(3);
-        executorService.submit(new Stamper(stampingQueue));
-        executorService.submit(new Assembler(stampingQueue, assemblingQueue));
+        executorService.submit(new Stamper(stampingQueue, 5));
+        executorService.submit(new Assembler(stampingQueue, assemblingQueue, 5));
         executorService.submit(new Operator(assemblingQueue, warehouseQueue));
     }
 }

@@ -3,24 +3,26 @@ package org.knit.lab2_2;
 import java.util.concurrent.BlockingQueue;
 
 public class Stamper implements Runnable {
-    private final BlockingQueue<Detail> stampingQeque;
-    private int lastDetailId = 0;
+    private final BlockingQueue<Detail> stampingQueue;
+    private int lastDetailId = 1;
+    private final int maxDetails;
 
-    public Stamper(BlockingQueue<Detail> stampingQeque) {
-        this.stampingQeque = stampingQeque;
+    public Stamper(BlockingQueue<Detail> stampingQueue, int maxDetails) {
+        this.stampingQueue = stampingQueue;
+        this.maxDetails = maxDetails;
     }
 
     @Override
     public void run() {
-        while (lastDetailId < 10) {
-            try {
-                stampingQeque.add(new Detail(++lastDetailId));
-                System.out.println("Сделал заготовку " + lastDetailId);
+        try {
+            while (lastDetailId <= maxDetails) {
+                stampingQueue.add(new Detail(lastDetailId));
+                System.out.printf("Штамповщик: Заготовка %d создана%n", lastDetailId);
                 Thread.sleep(1000);
                 lastDetailId++;
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }
