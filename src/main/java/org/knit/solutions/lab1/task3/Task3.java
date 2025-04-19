@@ -1,6 +1,6 @@
 package org.knit.solutions.lab1.task3;
 
-public class Task2_3 {
+public class Task3 {
     public static void execute() {
         Transport business = TransportFactory.createTransport("business");
         Transport family = TransportFactory.createTransport("family");

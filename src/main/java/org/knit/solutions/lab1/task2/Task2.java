@@ -1,6 +1,6 @@
 package org.knit.solutions.lab1.task2;
 
-public class Task2_2 {
+public class Task2 {
     public static void execute() {
         // Базовый кофе
         Coffee coffee = new Espresso();

@@ -11,7 +11,7 @@ package org.knit.sem1;
 //import org.knit.lab2_2.Task2_9;
 //import org.knit.lab2_3.Task10;
 
-public class Main0 {
+public class Main {
     public static void main(String[] args) {
 //        Task2_1.execute();
 //        Task2_2.execute();

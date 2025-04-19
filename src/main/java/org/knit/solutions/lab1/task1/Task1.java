@@ -1,6 +1,6 @@
 package org.knit.solutions.lab1.task1;
 
-public class Task2_1 {
+public class Task1 {
     public static void execute() {
         // Создаем обработчиков
         Approver callCenter = new CallCenter();
