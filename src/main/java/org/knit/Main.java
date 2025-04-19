@@ -1,27 +1,31 @@
 package org.knit;
 
-//import org.knit.lab2_1.Task2_1;
-//import org.knit.lab2_1.Task2_2;
-//import org.knit.lab2_1.Task2_3;
-//import org.knit.lab2_2.Task2_4;
-//import org.knit.lab2_2.Task2_5;
-//import org.knit.lab2_2.Task2_6;
-//import org.knit.lab2_2.Task2_7;
-//import org.knit.lab2_2.Task2_8;
-//import org.knit.lab2_2.Task2_9;
-//import org.knit.lab2_3.Task10;
+import org.knit.utils.TaskExecutor;
+import org.knit.utils.TaskFinder;
+import org.knit.utils.TaskHolder;
+
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
-    public static void main(String[] args) {
-//        Task2_1.execute();
-//        Task2_2.execute();
-//        Task2_3.execute();
-//        Task2_4.execute();
-//        Task2_5.execute();
-//        Task2_6.execute();
-//        Task2_7.execute();
-//        Task2_8.execute();
-//        Task2_9.execute();
-//        Task10.execute();
+    public static final String PACKAGE = "org.knit.solutions";
+
+    public static void main(String[] args) throws IOException, URISyntaxException {
+        TreeMap<Integer, TaskHolder> tasks = TaskFinder.findTasksByReflectionApi(PACKAGE);
+        for (TaskHolder task : tasks.values()) {
+            System.out.printf("Задача %d: %s%n", task.getId(), task.getDescriptor());
+        }
+
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Введите номер задачи для запуска: ");
+            TaskHolder taskHolder = tasks.get(scanner.nextInt());
+            if (taskHolder != null) {
+                TaskExecutor.executeTask(taskHolder.getTaskClass());
+            } else {
+                System.out.println("Task not found");
+            }
+        }
     }
 }
