@@ -22,6 +22,29 @@ import org.knit.solutions.Solution;
 @TaskDescription(taskNumber = 11, taskDescription = "Паттерн Observer (Наблюдатель)")
 public class Task11 implements Solution {
     public void execute() {
+//        User user1 = new User("Алексей");
+//        User user2 = new User("Иван");
+//        User user3 = new User("Александр");
+        Stock tesla = new Stock("Tesla", 32.);
+        Stock google = new Stock("Google", 64.);
+        Stock microsoft = new Stock("Microsoft", 46.);
 
+        MobileApp mobileApp1 = new MobileApp("Акционер");
+        MobileApp mobileApp2 = new MobileApp("Акционщик");
+        EmailNotifier emailNotifier1 = new EmailNotifier("Mail.ru");
+
+        mobileApp1.Subscribe(tesla);
+        mobileApp1.Subscribe(google);
+        mobileApp2.Subscribe(google);
+        mobileApp2.Subscribe(microsoft);
+        emailNotifier1.Subscribe(microsoft);
+
+        tesla.setPrice(33.);
+        google.setPrice(64.);
+        microsoft.setPrice(40.);
+
+        mobileApp1.Unsubscribe(google);
+
+        google.setPrice(40.);
     }
 }
