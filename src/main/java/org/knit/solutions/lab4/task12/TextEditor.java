@@ -1,7 +1,7 @@
 package org.knit.solutions.lab4.task12;
 
 public class TextEditor {
-    private String text = "1";
+    private String text = "";
     private final Caretaker caretaker = new Caretaker();
 
     public String getText() {
