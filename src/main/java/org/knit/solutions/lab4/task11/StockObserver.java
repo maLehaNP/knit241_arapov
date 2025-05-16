@@ -1,18 +1,15 @@
 package org.knit.solutions.lab4.task11;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public interface StockObserver {
-    List<User> users = new ArrayList<User>();
+    String getName();
 
     default void Subscribe(Stock stock) {
-        stock.addObservers(this);
+        stock.addObserver(this);
     }
 
     default void Unsubscribe(Stock stock) {
-        stock.removeObservers(this);
+        stock.removeObserver(this);
     }
 
-    void notifyUsers(Stock stock, float oldPrice, float newPrice);
+    void notifyUsers(Stock stock, double oldPrice, double newPrice);
 }
