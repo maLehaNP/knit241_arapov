@@ -22,9 +22,6 @@ import org.knit.solutions.Solution;
 @TaskDescription(taskNumber = 11, taskDescription = "Паттерн Observer (Наблюдатель)")
 public class Task11 implements Solution {
     public void execute() {
-//        User user1 = new User("Алексей");
-//        User user2 = new User("Иван");
-//        User user3 = new User("Александр");
         Stock tesla = new Stock("Tesla", 32.);
         Stock google = new Stock("Google", 64.);
         Stock microsoft = new Stock("Microsoft", 46.);

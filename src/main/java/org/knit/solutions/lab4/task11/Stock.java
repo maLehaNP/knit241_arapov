@@ -26,14 +26,14 @@ public class Stock {
         this.price = price;
     }
 
-    public void addObservers(StockObserver observer) {
+    public void addObserver(StockObserver observer) {
         if (!observers.contains(observer)) {
             observers.add(observer);
         } else System.out.println(observer.getName() + " уже подписан");
 
     }
 
-    public void removeObservers(StockObserver observer) {
+    public void removeObserver(StockObserver observer) {
         if (observers.contains(observer)) {
             observers.remove(observer);
         } else System.out.println(observer.getName() + " не подписан");
