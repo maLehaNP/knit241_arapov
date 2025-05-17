@@ -20,7 +20,17 @@ public class App implements Solution {
     public void execute() {
         Scanner scanner = new Scanner(System.in);
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+
+        for (String beanDefinitionName : context.getBeanDefinitionNames()) {
+            System.out.println(beanDefinitionName);
+        }
+
         PasswordService passwordService = context.getBean(PasswordService.class);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            MasterPasswordHolder holder = context.getBean(MasterPasswordHolder.class);
+            holder.clear(); // обнулить char[] в памяти
+        }));
 
         System.out.println("======================= Список команд =========================");
         System.out.println("add — добавить запись (сайт, логин, пароль),");
@@ -44,20 +54,9 @@ public class App implements Solution {
                 case "list" -> passwordService.list();
                 case "copy" -> passwordService.copy(scanner.next());
                 case "delete" -> passwordService.delete(scanner.next());
-                case "exit" -> {
-                    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-                        MasterPasswordHolder holder = context.getBean(MasterPasswordHolder.class);
-                        holder.clear(); // обнулить char[] в памяти
-                    }));
-                    exit(1);
-                }
-                default -> {
-                    System.out.println("Неправильная опция");
-                    exit(1);
-                }
+                case "exit" -> exit(1);
+                default -> System.out.println("Неправильная опция");
             }
         }
-
-
     }
 }

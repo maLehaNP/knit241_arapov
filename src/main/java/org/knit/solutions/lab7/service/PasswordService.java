@@ -1,26 +1,27 @@
 package org.knit.solutions.lab7.service;
 
-import org.knit.solutions.lab7.clipboard.SystemClipboardService;
-import org.knit.solutions.lab7.crypto.AesEncryptionService;
+import org.knit.solutions.lab7.clipboard.ClipboardService;
+import org.knit.solutions.lab7.crypto.EncryptionService;
 import org.knit.solutions.lab7.model.PasswordEntry;
-import org.knit.solutions.lab7.repository.InMemoryPasswordRepository;
+import org.knit.solutions.lab7.repository.PasswordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import static java.lang.System.exit;
-
 @Service
 public class PasswordService {
-    InMemoryPasswordRepository repository;
-    SystemClipboardService clipboard;
-    AesEncryptionService encryption;
-
     @Autowired
-    public PasswordService(InMemoryPasswordRepository repository, SystemClipboardService clipboard, AesEncryptionService encryption) {
-        this.repository = repository;
-        this.clipboard = clipboard;
-        this.encryption = encryption;
-    }
+    PasswordRepository repository;
+    @Autowired
+    ClipboardService clipboard;
+    @Autowired
+    EncryptionService encryption;
+
+//    @Autowired
+//    public PasswordService(PasswordRepository repository, ClipboardService clipboard, EncryptionService encryption) {
+//        this.repository = repository;
+//        this.clipboard = clipboard;
+//        this.encryption = encryption;
+//    }
 
     public void add(String site, String login, String password) {
         repository.addEntry(new PasswordEntry(site, login, encryption.encrypt(password)));
@@ -46,9 +47,5 @@ public class PasswordService {
 
     public void delete(String site) {
         repository.deleteEntry(site);
-    }
-
-    public void exitProgram() {
-        exit(1);
     }
 }

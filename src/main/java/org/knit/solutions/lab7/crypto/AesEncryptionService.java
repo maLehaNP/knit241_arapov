@@ -43,13 +43,11 @@ public class AesEncryptionService implements EncryptionService {
         return null;
     }
 
-
     private IvParameterSpec generateIv() {
         byte[] iv = new byte[16];
         new SecureRandom().nextBytes(iv);
         return new IvParameterSpec(iv);
     }
-
 
     public String encrypt(String input) {
         try {
@@ -63,7 +61,6 @@ public class AesEncryptionService implements EncryptionService {
         }
         return null;
     }
-
 
     public String decrypt(String cipherText) {
         try {

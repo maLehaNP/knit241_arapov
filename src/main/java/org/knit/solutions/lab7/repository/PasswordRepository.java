@@ -9,7 +9,10 @@ public interface PasswordRepository {
     HashMap<String, PasswordEntry> repository = new HashMap<>();
 
     void addEntry(PasswordEntry entry);
+
     void deleteEntry(String site);
+
     PasswordEntry getEntry(String site);
+
     Collection<PasswordEntry> entries();
 }
