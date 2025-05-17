@@ -1,5 +1,6 @@
 package org.knit.solutions.lab7;
 
+import lombok.extern.slf4j.Slf4j;
 import org.knit.TaskDescription;
 import org.knit.solutions.Solution;
 import org.knit.solutions.lab7.config.AppConfig;
@@ -13,14 +14,17 @@ import java.util.Scanner;
 
 import static java.lang.System.exit;
 
+@Slf4j
 @TaskDescription(taskNumber = 20, taskDescription = "Password Manager с Spring и шифрованием")
 @Component
 public class App implements Solution {
     @Override
     public void execute() {
+        log.info("Запуск консольного интерфейса...");
         Scanner scanner = new Scanner(System.in);
         ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
+        System.out.println("\nBean Definition Names: ");
         for (String beanDefinitionName : context.getBeanDefinitionNames()) {
             System.out.println(beanDefinitionName);
         }
@@ -32,7 +36,7 @@ public class App implements Solution {
             holder.clear(); // обнулить char[] в памяти
         }));
 
-        System.out.println("======================= Список команд =========================");
+        System.out.println("\n======================= Список команд =========================");
         System.out.println("add — добавить запись (сайт, логин, пароль),");
         System.out.println("list — отобразить список сайтов и логинов (без паролей),");
         System.out.println("copy <site> — расшифровать пароль и скопировать в буфер обмена,");
@@ -54,8 +58,14 @@ public class App implements Solution {
                 case "list" -> passwordService.list();
                 case "copy" -> passwordService.copy(scanner.next());
                 case "delete" -> passwordService.delete(scanner.next());
-                case "exit" -> exit(1);
-                default -> System.out.println("Неправильная опция");
+                case "exit" -> {
+                    log.info("Завершение программы");
+                    exit(1);
+                }
+                default -> {
+                    System.out.println("Неправильная опция");
+                    log.warn("Пользователем введена неправильная опция");
+                }
             }
         }
     }

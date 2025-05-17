@@ -1,16 +1,16 @@
 package org.knit.solutions.lab7.config;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 /*import org.knit.solutions.lab7.clipboard.SystemClipboardService;
 import org.knit.solutions.lab7.crypto.AesEncryptionService;
 import org.knit.solutions.lab7.repository.InMemoryPasswordRepository;
 import org.knit.solutions.lab7.security.MasterPasswordHolder;
 import org.knit.solutions.lab7.service.PasswordService;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Bean;*/
 
 @Configuration
-@ComponentScan("org.knit.solutions.lab7")*/
+@ComponentScan("org.knit.solutions.lab7")
 public class AppConfig {
     /*@Bean
     public InMemoryPasswordRepository inMemoryPasswordRepository() {

@@ -1,5 +1,6 @@
 package org.knit.solutions.lab7.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.knit.solutions.lab7.clipboard.ClipboardService;
 import org.knit.solutions.lab7.crypto.EncryptionService;
 import org.knit.solutions.lab7.model.PasswordEntry;
@@ -7,6 +8,7 @@ import org.knit.solutions.lab7.repository.PasswordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class PasswordService {
     @Autowired
@@ -25,6 +27,8 @@ public class PasswordService {
 
     public void add(String site, String login, String password) {
         repository.addEntry(new PasswordEntry(site, login, encryption.encrypt(password)));
+        log.info("Добавлена запись для сайта \"{}\"", site);
+//        log.info("Добавлена запись ({}, {}, {})", site, login, password);
     }
 
     public void list() {
@@ -41,11 +45,14 @@ public class PasswordService {
         try {
             clipboard.copyToClipboard(encryption.decrypt(repository.getEntry(site).getEncryptedPassword()));
         } catch (NullPointerException e) {
+            log.error("Записи для такого сайта нет: {}", e.getMessage(), e);
             System.out.println("Такого сайта нет.");
         }
+        log.info("Скопирован пароль для сайта \"{}\" в буфер обмена", site);
     }
 
     public void delete(String site) {
+        log.info("Попытка удаления записи для сайта \"{}\"", site);
         repository.deleteEntry(site);
     }
 }

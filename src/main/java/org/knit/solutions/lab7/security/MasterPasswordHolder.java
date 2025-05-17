@@ -1,10 +1,12 @@
 package org.knit.solutions.lab7.security;
 
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Scanner;
 
+@Slf4j
 @Component
 public class MasterPasswordHolder {
     private char[] masterPassword;
@@ -19,6 +21,7 @@ public class MasterPasswordHolder {
         this.masterPassword = System.console() != null
                 ? System.console().readPassword()
                 : scanner.nextLine().toCharArray();
+        log.info("Пользователь ввел мастер-пароль");
     }
 
     public char[] getMasterPassword() {
