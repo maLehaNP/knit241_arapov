@@ -19,9 +19,9 @@ import java.util.Random;
 
 @Service
 public class AesEncryptionService implements EncryptionService {
-    MasterPasswordHolder holder;
-    SecretKey key;
-    IvParameterSpec ivParameterSpec = generateIv();
+    private final MasterPasswordHolder holder;
+    private final SecretKey key;
+    private final IvParameterSpec ivParameterSpec = generateIv();
 
     @Autowired
     public AesEncryptionService(MasterPasswordHolder masterPasswordHolder) {

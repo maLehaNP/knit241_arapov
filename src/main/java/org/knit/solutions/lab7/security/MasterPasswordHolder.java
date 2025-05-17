@@ -4,6 +4,7 @@ package org.knit.solutions.lab7.security;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Scanner;
 
 @Slf4j
@@ -11,10 +12,7 @@ import java.util.Scanner;
 public class MasterPasswordHolder {
     private char[] masterPassword;
 
-    public MasterPasswordHolder() {
-        setMasterPassword();
-    }
-
+    @PostConstruct
     public void setMasterPassword() {
         System.out.print("Введите мастер-пароль: ");
         Scanner scanner = new Scanner(System.in);
